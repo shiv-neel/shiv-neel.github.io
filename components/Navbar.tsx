@@ -46,10 +46,7 @@ const Navbar = () => {
 					<li className='flex mr-auto'>
 						<Logo />
 					</li>
-					<motion.div
-						animate={{ x: offsets[pathnames[router.pathname]] }}
-						className='invisible md:visible'
-					>
+					<motion.div animate={{ x: offsets[pathnames[router.pathname]] }}>
 						<IconButton
 							className='absolute z-1 shadow-xl'
 							backgroundColor={'#006AFF'}
@@ -85,16 +82,6 @@ const Navbar = () => {
 							</a>
 						</Link>
 					</li>
-					<li
-						className='navbar-toggle shadow-lg rounded-lg'
-						onClick={() => toggleDropdown((dropdown) => !dropdown)}
-					>
-						<IconButton
-							colorScheme={'messenger'}
-							aria-label='menu dropdown'
-							icon={<CgMenu className='text-2xl cursor-pointer' />}
-						/>
-					</li>
 					<li className='shadow-lg rounded-lg right-0'>
 						<IconButton
 							backgroundColor={colorMode === 'dark' ? '#833AB4' : '#FCAF45'}
@@ -105,7 +92,6 @@ const Navbar = () => {
 						/>
 					</li>
 				</ul>
-				<Dropdown showDropdown={showDropdown} />
 			</nav>
 		)
 	)

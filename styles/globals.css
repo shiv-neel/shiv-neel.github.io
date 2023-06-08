@@ -18,24 +18,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-@layer utilities {
-  .navbar-toggle {
-    display: none;
-  }
-  .menu-dropdown {
-    display: none;
-  }  
-  @media (max-width: 768px) {
-    .navbar-toggle {
-      display: flex;
-    }
-    .navbar-link {
-      display: none;
-    }
-    .menu-dropdown {
-      display: flex;
-    }
-  }
-
-}

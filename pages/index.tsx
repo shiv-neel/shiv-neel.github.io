@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-	Button,
-	Heading,
-	Box,
-} from '@chakra-ui/react'
+import { Button, Heading, Box } from '@chakra-ui/react'
 import { FaDownload } from 'react-icons/fa'
 import Link from 'next/link'
 import { BsDot, BsGithub, BsLinkedin, BsSpotify } from 'react-icons/bs'
@@ -20,7 +16,10 @@ export default function Home() {
 	}, [hour])
 
 	return (
-		<Box className='md:mt-12 mt-14 px-20 mx-auto max-w-5xl'>
+		<Box
+			className='md:mt-12 mt-14 px-20 mx-auto max-w-5xl'
+			style={{ height: '150vh' }}
+		>
 			<Box className='flex items-center justify-between'>
 				<Box className='pt-20 pb-10'>
 					<Heading as='h3' size='lg'>
@@ -47,7 +46,10 @@ export default function Home() {
 						<Link href='https://github.com/shiv-neel' passHref>
 							<BsGithub className='hover:scale-110 hover:cursor-pointer duration-100 text-green-500' />
 						</Link>
-						<Link href='https://www.linkedin.com/in/shiva-neelakantan/' passHref>
+						<Link
+							href='https://www.linkedin.com/in/shiva-neelakantan/'
+							passHref
+						>
 							<BsLinkedin className='hover:scale-110 hover:cursor-pointer duration-100 text-blue-600' />
 						</Link>
 						<Link href='mailto:shiv.neel1622@gmail.com' passHref>
@@ -61,10 +63,7 @@ export default function Home() {
 							View Projects
 						</Button>
 					</Link>
-					<Link
-						href='https://www.overleaf.com/read/vzgkkknbkhqg'
-						passHref
-					>
+					<Link href='https://www.overleaf.com/read/vzgkkknbkhqg' passHref>
 						<a target='_blank'>
 							<Button
 								leftIcon={<FaDownload />}
