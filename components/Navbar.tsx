@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Box, IconButton, useColorMode } from '@chakra-ui/react'
-import { CgFileDocument, CgHome, CgLaptop, CgMenu, CgMoon, CgSun, CgTrello, CgUser } from 'react-icons/cg'
+import {
+	CgFileDocument,
+	CgHome,
+	CgLaptop,
+	CgMenu,
+	CgMoon,
+	CgSun,
+	CgTrello,
+	CgUser,
+} from 'react-icons/cg'
 import { MdOutlineDarkMode } from 'react-icons/md'
 import Logo from './Logo'
 import { useRouter } from 'next/router'
@@ -13,7 +22,7 @@ const Navbar = () => {
 	const router = useRouter()
 	const inactive =
 		'transition duration-200 hover:scale-150 hover:text-blue-500 hover:font-bold z-50'
-	const active = 'text-blue-500 font-bold z-50'
+	const active = 'text-white font-bold z-50'
 
 	const [showDropdown, toggleDropdown] = useState<boolean>(false)
 	const [mounted, setMounted] = useState<boolean>(false)
@@ -22,7 +31,7 @@ const Navbar = () => {
 		setMounted(true)
 	}, [])
 
-	const offsets = [34, 102, 170, 238]
+	const offsets = [78, 146, 214, 282]
 	const pathnames = {
 		'/': 0,
 		'/about': 1,
@@ -32,8 +41,8 @@ const Navbar = () => {
 
 	return (
 		mounted && (
-			<nav className='w-full'>
-				<ul className='mx-10 top-0 flex lg:justify-end sm:justify-center items-center gap-12 pt-10 pb-5'>
+			<nav className='w-full flex justify-center'>
+				<ul className='mx-10 top-0 flex lg:justify-end sm:justify-center items-center gap-12 pt-10 pb-5 lg:w-1/2'>
 					<li className='flex mr-auto'>
 						<Logo />
 					</li>
@@ -41,10 +50,12 @@ const Navbar = () => {
 						animate={{ x: offsets[pathnames[router.pathname]] }}
 						className='invisible md:visible'
 					>
-						<Box
-							className='w-12 h-12 p-2 rounded-md cursor-pointer absolute z-1 -bottom-6 shadow-xl'
-							bgColor={colorMode === 'light' ? 'white' : 'black'}
-						></Box>
+						<IconButton
+							className='absolute z-1 shadow-xl'
+							backgroundColor={'#006AFF'}
+							aria-label='nav slider'
+							style={{ fontSize: 20 }}
+						></IconButton>
 					</motion.div>
 					<li className={router.pathname === '/' ? active : inactive}>
 						<Link href='/'>
@@ -79,16 +90,14 @@ const Navbar = () => {
 						onClick={() => toggleDropdown((dropdown) => !dropdown)}
 					>
 						<IconButton
-						colorScheme={'messenger'}
+							colorScheme={'messenger'}
 							aria-label='menu dropdown'
-							icon={
-								<CgMenu className='text-2xl cursor-pointer' />
-							}
+							icon={<CgMenu className='text-2xl cursor-pointer' />}
 						/>
 					</li>
 					<li className='shadow-lg rounded-lg right-0'>
 						<IconButton
-						colorScheme={'messenger'}
+							backgroundColor={colorMode === 'dark' ? '#833AB4' : '#FCAF45'}
 							aria-label='dark mode button'
 							style={{ fontSize: 20 }}
 							onClick={toggleColorMode}
